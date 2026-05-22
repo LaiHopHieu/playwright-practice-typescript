@@ -23,5 +23,5 @@ test('Test Login-Logout', async ({page}) => {
     await page.getByRole('link', {name: 'Log out'}).click();
 
     // Step 7: Verify return to login page
-    await expect(page.getByRole('heading', {name: 'Test login'})).toBeVisible();
+    await expect(page.getByRole('heading', {name: 'Test login should fail'})).toBeVisible();
 });
