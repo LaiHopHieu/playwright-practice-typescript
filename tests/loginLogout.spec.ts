@@ -1,8 +1,10 @@
 import {test, expect} from '@playwright/test';
 
+    const BASE_URL = 'https://practicetestautomation.com/practice-test-login/';
+
 test('Test Login-Logout', async ({page}) => {
     // Step 1: Navigate to the login page
-    await page.goto('https://practicetestautomation.com/practice-test-login/');
+    await page.goto(BASE_URL);
 
     // Step 2: Verify the page title & heading
     await expect(page).toHaveTitle(/Test Login/);
@@ -16,12 +18,13 @@ test('Test Login-Logout', async ({page}) => {
     await page.getByRole('button', {name: 'Submit'}).click();
 
     // Step 5: Verify the success message
-    await expect(page).toHaveTitle(/Logged In Successfully/);
+    await expect(page).toHaveURL(/.*\/logged-in-successfully\//);
     await expect(page.getByRole('heading', {name: 'Logged In Successfully'})).toBeVisible();
     
     // Step 6: Click the logout button
     await page.getByRole('link', {name: 'Log out'}).click();
 
     // Step 7: Verify return to login page
-    await expect(page.getByRole('heading', {name: 'Test login should fail'})).toBeVisible();
+    await expect(page).toHaveURL(/.*\/practice-test-login\//);
+    await expect(page.getByRole('heading', {name: 'Test login'})).toBeVisible();
 });
