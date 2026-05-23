@@ -2,7 +2,7 @@ import {test, expect} from '@playwright/test';
 
     const BASE_URL = 'https://practicetestautomation.com/practice-test-login/';
 
-test('Test Login-Logout', async ({page}) => {
+test('Positive Login-Logout', async ({page}) => {
     // Step 1: Navigate to the login page
     await page.goto(BASE_URL);
 
