@@ -27,7 +27,9 @@ test('Positive Login-Logout', async ({page}) => {
     // Step 7: Verify return to login page
     await expect(page).toHaveURL(/.*\/practice-test-login\//);
     await expect(page.getByRole('heading', {name: 'Test login'})).toBeVisible();
-    
+
     // Add screenshot
     await page.screenshot({ path: 'screenshots/login-logout-positive.png'});
+
+    await page.close();
 });

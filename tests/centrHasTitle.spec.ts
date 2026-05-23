@@ -18,5 +18,6 @@ test('Centr has title', async ({ page }) => {
   // Using fixtures available in Playwright Test
   await page.goto('https://centr.com/');
   await expect(page).toHaveTitle(/Centr/);
+  await page.close();
 });
 
